@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Paper</title>
+    <link href="paper.css" rel="stylesheet" />
+</head>
+
+<body onmouseout="keyDown=false;">
+    <h1>Image Paper</h1>
+    <div id="dv_parent" onmouseover="paper(45);" onmouseout="paper(0);">
+        <!--onmousemove="startP(event);" onmousedown="keyDown=true;x=event.pageX" onmouseup="keyDown=false;">-->
+        <div id="dv1"></div>
+        <div id="dv11"></div>
+        <div id="dv2"></div>
+        <div id="dv22"></div>
+        <div id="dv3"></div>
+        <div id="dv33"></div>
+        <div id="dv4"></div>
+        <div id="dv44"></div>
+        <div id="dv5"></div>
+        <div id="dv55"></div>
+        <!--<div id="dv6"></div>-->
+        <!--<div id="dv66"></div>-->
+        <!--<div id="dv7"></div>-->
+        <!--<div id="dv77"></div>-->
+        <!--<div id="dv8"></div>-->
+        <!--<div id="dv88"></div>-->
+    </div>
+    <div id="print"></div>
+    <script src="paper.js">
+
+    </script>
+    <script>
+        let deg = 0;
+        var x = 0;
+        let keyDown = false;
+        paper(0);
+        let fold = false;
+        function togglePaper(deg) {
+            fold = !fold;
+            if (fold)
+                paper(deg);
+            else
+                paper(0);
+        }
+        function startP(e) {
+            if (keyDown) {
+                deg += (x - e.pageX) / 10;
+                paper(deg);
+                x = e.pageX;
+            }
+        }
+        function setX(e) {
+            x = e.positionX;
+            alert(x);
+        }
+    </script>
+</body>
+
+</html>
